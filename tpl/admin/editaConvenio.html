@@ -1,0 +1,84 @@
+
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="row">
+            <div class="col-md-12">
+                <a class="btn btn-info" href="/admin/convenio">voltar</a>
+            </div>
+        </div>
+      <h1>
+           Atualização de  Convênio
+      </h1>
+    </section>
+
+    <section class="content">
+    <form  method="post" action="/admin/convenio/editar/">
+        <div class="row">
+        
+            <div class="col-md-6 col-md-offset-3">
+        <p id="statu-edicao">
+        
+        
+        </p>
+        
+        
+            </div>
+        
+            <div class="col-md-12">
+             
+                    <input type="hidden"  name="convenio_id" value="{$convenio['convenio_contrato_id']}" class="form-control"/>
+    
+             <div class="col-md-4">
+                <div class="form-group">
+                <label class="control-label">Banco</label>
+                <select  class="form-control" required name="banco_id"  id="selecao-banco-id">
+                    {loop="$bancos"}
+                  <option value="{$value.banco_id}" {if="$value.banco_id == $convenio['banco_id']"} selected  {/if} >{$value.descricao}</option>
+                     {/loop}
+                  </select>
+                </div>
+                
+        
+            </div>   
+        
+            <div class="col-md-3">
+                    <div class="form-group">
+                            <label class="control-label">Descrição</label>
+                            <input type="text" required name="descricao_convenio" value="{$convenio['descricao']}" id="desc_con_editar_id" class="form-control" placeholder="Percentual" aria-describedby="basic-addon2">
+                    </div>          
+                </div>         
+            <div class="col-md-4">
+                <div class="col-md-6">
+                    <button type="submit" id="btn-atualizar-banco"  class="btn btn-primary btn-block" >Atualizar</button>
+                </div>
+                <div class="col-md-6">
+                        <a class="btn btn-primary btn-block" style="margin-top:22px;" href="/admin/convenio">Cancelar</a>
+                </div>
+                </div>
+        
+            </div>
+            
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+              {if="$err != null"}
+
+              <h5 class="alert alert-danger">${$err}</h5>
+ 
+               {/if}
+          </div>
+ 
+        </div>
+        
+        </form>
+
+        </section>
+        </div>
+
+
+
+

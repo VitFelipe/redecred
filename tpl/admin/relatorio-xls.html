@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ 
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+ 
+  <div class="login-box-body">
+    <p class="login-box-msg"></p>
+    
+    <div class="page-header">
+     <h4>Relatório de Solicitações</h4>
+    </div>
+    <table style="border:1px solid black;">
+ <thead>
+<th style="border:1px solid black;">Nome Cliente</th>
+<th style="border:1px solid black;">Nome Parceiro</th>
+<th style="border:1px solid black;">Banco Parceiro</th>
+<th style="border:1px solid black;">Agencia Parceiro</th>
+<th style="border:1px solid black;">Conta Parceiro</th>
+<th style="border:1px solid black;">Banco Solicitacao</th>
+<th style="border:1px solid black;">Convênio </th>
+<th style="border:1px solid black;">Convênio Solicitacão</th>
+<th style="border:1px solid black;">Data Solicitação</th> 
+<th style="border:1px solid black;">Status Solicitação</th>
+<th style="border:1px solid black;">Valor Emprestimo</th>   
+{if="$perfil == 1"}
+<th style="border:1px solid black;">Comissão Normal</th>
+{/if}
+<th style="border:1px solid black;">Comissão Parceiro</th>
+{if="$perfil == 1"}
+<th style="border:1px solid black;">Saldo</th>
+{/if}
+ </thead>
+{loop="$solicitacoes"}
+<tr>
+  <td style="border:1px solid black;">{$value.nome_cliente}</td>
+  <td style="border:1px solid black;">{$value.nome_parceiro}</td>
+  <td style="border:1px solid black;">{$value.banco_parceiro}</td>
+  <td style="border:1px solid black;">{$value.agencia_parceiro}</td>
+  <th style="border:1px solid black;">{$value.conta_parceiro}</th>
+  <td style="border:1px solid black;">{$value.banco}</td>
+  <td style="border:1px solid black;">{$value.convenio}</td>
+  <td style="border:1px solid black;">{$value.convenio_solicitacao}</td>
+  <td style="border:1px solid black;">{function="formatData($value.data_solicitacao)"}</td>
+  <td style="border:1px solid black;">{$value.status_solicitacao}</td>
+  <td style="border:1px solid black;">R${function="formatNumber($value.valor_emprestimo)"}</td>
+  {if="$perfil ==1"}
+  <td style="border:1px solid black;">R${function="formatNumber($value.comissao_redCred)"}</td>
+  {/if}
+  <td style="border:1px solid black;">R${function="formatNumber($value.comissao_parceiro)"}</td>
+  {if="$perfil ==1"}
+  <td style="border:1px solid black;">R${function="formatNumber($value.saldo)"}</td>
+  {/if}
+</tr>
+{/loop}
+
+    </table>
+  </div>
+  <!-- /.login-box-body -->
+</div>
+
+</body>
+</html>

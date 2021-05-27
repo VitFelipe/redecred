@@ -1,0 +1,405 @@
+
+
+
+
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      
+            <h1>
+                  Solicitacao <small>View</small>
+           </h1>
+           <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li >Acompanhamento Solicitação</li>
+            <li class="active" >View Solicitação</li>
+          </ol>
+        
+      
+     
+    </section>
+
+    <section class="content">
+            <section class="content-header">
+      
+
+            <div class="row">
+                    <div class="col-md-11">
+                        <a class="btn btn-info" href="/admin/solicitacao/acompanhamento">voltar</a>
+                    </div>
+                    <div class="col-md-1">
+                   
+                        <label>Exportar</label><a href="/admin/relatorio/solicitacao/view/pdf/{$solcitacao['solicitacao_contrato_id']}" class="btn btn-info"><span class="fa fa-file-pdf-o"></span></a></li>
+                    </div>  
+                    {if="$usuario['perfil_id'] == 1"}
+                    {if="$solcitacao['status_id'] != 1 && $solcitacao['status_id'] != 7"}   
+                    <div class="col-md-4">
+                    <button class="btn btn-primary"  data-toggle="modal" data-target=".modal-dados-complementares" >Editar Dados Complementares</button>
+                  </div>
+                  {/if}
+                    {/if}
+                  </div>
+                </section>
+
+
+            <div class="row" style="margin-top:10px;">
+                    <div class="col-xs-12">
+                      <div class="box">
+      
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-12">
+                        <div class="col-md-6">
+                <label>Cliente</label>
+                 <input type="text" class="form-control" value="{$solcitacao['nome_cliente']}" disabled />
+                        </div>
+                
+            
+           
+
+                    <div class="col-md-3">
+                        <div class="form-group">    
+                            <label>Cpf</label>
+                             <input type="text" class="form-control" value="{$solcitacao['cpf']}" disabled />
+                                    </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">    
+                                    <label>Rg</label>
+                                     <input type="text" class="form-control" value="{$solcitacao['rg']}" disabled />
+                                            </div>
+                                    </div>       
+
+                   
+                </div>
+                </div>
+               
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-12">
+                            <div class="col-md-3">
+                    <label>Email</label>
+                     <input type="text" class="form-control" value="{$solcitacao['email']}" disabled />
+                            </div>
+                    
+                
+                    <div class="col-md-3">
+                    <div class="form-group">    
+                        <label>Tipo Conta</label>
+                         <input type="text" class="form-control" value="{$solcitacao['tipo_conta']}" disabled />
+                                </div>
+                        </div>
+    
+                        <div class="col-md-3">
+                            <div class="form-group">    
+                                <label>Banco</label>
+                                 <input type="text" class="form-control" value="{$solcitacao['banco']}" disabled />
+                                        </div>
+                                </div>
+    
+                                <div class="col-md-3">
+                                    <div class="form-group">    
+                                        <label>Agencia</label>
+                                         <input type="text" class="form-control" value="{$solcitacao['agencia']}" disabled />
+                                                </div>
+                                        </div>       
+    
+                       
+                    </div>
+                    </div>
+                   
+                </div>
+
+
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                                <div class="col-md-3">
+                        <label>Estado Civil</label>
+                         <input type="text" class="form-control" value="{$solcitacao['estado_civil']}" disabled />
+                                </div>
+                        
+                    
+                        <div class="col-md-3">
+                        <div class="form-group">    
+                            <label>Endereço</label>
+                             <input type="text" class="form-control" value="{$solcitacao['endereco_cliente']}" disabled />
+                                    </div>
+                            </div>
+        
+                            <div class="col-md-3">
+                                <div class="form-group">    
+                                    <label>Cidade</label>
+                                     <input type="text" class="form-control" value="{$solcitacao['cidade_cliente']}" disabled />
+                                            </div>
+                                    </div>
+        
+                                    <div class="col-md-3">
+                                        <div class="form-group">    
+                                            <label>Bairro</label>
+                                             <input type="text" class="form-control" value="{$solcitacao['bairro']}" disabled />
+                                                    </div>
+                                            </div>       
+        
+                           
+                        </div>
+                        </div>
+                       
+                    </div>
+
+
+
+
+            </div>
+            </div>
+            </div>
+
+
+            <div class="row" style="margin-top:10px;">
+                    <div class="col-xs-12">
+                      <div class="box">
+                        <div class="box-header">
+                          <h3 class="box-title">Contrato</h3>
+                        </div>
+            <div class="box-body">
+                
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                                <div class="col-md-4">
+                        <label>Valor Emprestimo</label>
+                         <label class="form-control">R${function="formatNumber($solcitacao['valor_emprestimo'])"}</label>
+                                </div>
+                        
+                    
+                        <div class="col-md-4">
+                        <div class="form-group">    
+                            <label>Valor Parcela</label>
+                             <label class="form-control" >R${function="formatNumber($solcitacao['valor_parcela'])"}</label>
+                                    </div>
+                            </div>
+        
+                            <div class="col-md-4">
+                                <div class="form-group">    
+                                    <label>Prazo</label>
+                                     <input type="text" class="form-control" value="{$solcitacao['prazo']}" disabled />
+                                            </div>
+                                    </div>
+        
+                           
+                        </div>
+                        </div>
+                       
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                    <div class="col-md-3">
+                            <label>Convênio Solicitação</label>
+                             <input type="text" class="form-control" value="{$solcitacao['convenio_solicitacao']}" disabled />
+                                    </div>
+                            
+                        
+                            <div class="col-md-3">
+                            <div class="form-group">    
+                                <label>Convênio</label>
+                                 <input type="text" class="form-control" value="{$solcitacao['convenio']}" disabled />
+                                        </div>
+                                </div>
+            
+                                <div class="col-md-3">
+                                    <div class="form-group">    
+                                        <label>Tipo Contrato</label>
+                                         <input type="text" class="form-control" value="{$solcitacao['tipo_contrato']}" disabled />
+                                                </div>
+                                        </div>
+            
+                                        <div class="col-md-3">
+                                            <div class="form-group">    
+                                                <label>Tabela de Convênio</label>
+                                                 <input type="text" class="form-control" value="{$solcitacao['tabela_convenio']}" disabled />
+                                                        </div>
+                                                </div>       
+            
+                               
+                            </div>
+                            <div class="col-md-12">
+                            <div class="col-md-3">
+                            <div class="form-group">
+                              <label class="control-label">Numero Contrato</label>
+                              <input type="text" class="form-control" disabled value="{$solcitacao[numero_contrato]}" required  name="numero_contrato"    />               
+                            </div>
+                          </div>
+                        </div>
+
+                            </div>
+                           
+                        </div>
+                  
+            </div>
+   
+</div>
+</div>
+            </div>
+
+
+
+<div class="row" style="margin-top:10px;">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Anexos</h3>
+        </div>
+<div class="box-body">
+<div class="row">
+        {if="$solcitacao['status_id'] != 1 && $solcitacao['status_id'] != 7"}   
+        <div class="col-md-12">
+    <button class="btn btn-primary"  data-toggle="modal" data-target=".modal-anexo-add" >Novo</button>
+        </div> 
+        {/if}
+
+</div>  
+        <table class="table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Tipo</th>
+                    <th>Nome</th>
+                    <th>Opções</th>
+                  </tr>
+                </thead>
+                <tbody >
+
+                        {loop="$anexos"}
+                        <tr>
+                            <td></td>
+                            <td>{$value.tipo_documento}</td>
+                            <td>{$value.nome}</td>
+                            <td>
+                                <a href="/{$value.arquivo}" target='_blank' class='btn btn-success' ><span class='fa  fa-download'></span></a>
+                            {if="$solcitacao['status_id'] != 1 && $solcitacao['status_id'] != 7"}   
+                                <a href="/admin/solicitacao/{$solcitacao[solicitacao_contrato_id]}/anexo/delete/{$value.arquivo_solicitacao_id}"  class='btn btn-danger' onclick="return confirm('Tem certeza que deseja excluir esse anexo do Tipo {$value.tipo_documento} ?');" ><span class='fa  fa-close'></span></a>
+                            {/if}
+                            </td>
+                          </tr>
+                        {/loop}
+                 
+                </tbody>
+              </table>
+
+  
+</div>
+
+</div>
+</div>
+
+        
+    </div>
+
+    {if="$usuario['perfil_id'] == 1"}
+
+    <div class="modal fade modal-dados-complementares" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="gridSystemModalLabel">Dados Complementares</h4>
+          </div>
+          <div class="modal-body">
+        
+            <form method="POST" action="/admin/solicitacao/complemento/add" enctype="multipart/form-data" > 
+          <input type="hidden" name="solicitacao_id" value="{$solcitacao[solicitacao_contrato_id]}" />
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+              <div class="form-group">
+                <label class="control-label">Numero Contrato</label>
+                <input type="text" class="form-control" value="{$solcitacao[numero_contrato]}" required  name="numero_contrato"    />               
+              </div>
+            </div>  
+            <div class="col-md-6 col-md-offset-3">
+              <div class="form-group">
+                <label class="control-label">Valor Emprestimo</label>
+                <input class="form-control" required type="text" value="{$solcitacao[valor_emprestimo]}" data-mask="##.###,##" data-mask-reverse="true" data-mask-maxlength="false" name="valor_emprestimo" id="valor-emprestimo-id"    placeholder="Informe o Valor do Emprestimo !"    />               
+              </div>
+            </div>  
+            <div class="col-md-6 col-md-offset-3">
+              <div class="form-group">
+                <label class="control-label">Valor Parcela</label>
+                <input  class="form-control" required type="text" value="{$solcitacao[valor_parcela]}" data-mask="##.###,##" data-mask-reverse="true" data-mask-maxlength="false" name="valor_parcela" id="valor-parcela-id"    placeholder="Informe o Valor da parcela !"        />               
+              </div>
+            </div>  
+            <div class="col-md-4 col-md-offset-4">
+              <input type="submit" value="Salvar" onclick="return confirm('deseje editar as informações complementares');" class="btn btn-primary btn-block" />
+              </div>
+          </div>
+         
+    
+            </form>
+           
+    
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+{/if}
+
+
+    <div class="modal fade modal-anexo-add" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="gridSystemModalLabel">Adicionar Anexo</h4>
+                </div>
+                <div class="modal-body">
+              
+                  <form method="POST" action="/admin/solicitacao/anexo/add" enctype="multipart/form-data" > 
+                <input type="hidden" name="solicitacao_id" value="{$solcitacao[solicitacao_contrato_id]}" />
+                <div class="row">
+                  <div class="col-md-6 col-md-offset-3">
+                    <div class="form-group">
+                      <label class="control-label">Tipo Documento</label>
+                      <select name="tipo" class="form-control">
+                      
+                          <option value="CPF/RG">CPF e RG</option>
+                          <option value="Comprovate de Residência" >Comprovate de Residência</option>
+                          <option value="Contra cheque" >Contra cheque</option>
+                          <option value="Outros" >Outros</option>       
+                      </select>
+                    </div>
+                  </div>  
+                  <div class="col-md-6 col-md-offset-3">
+                        <div class="form-group">
+                        <label class="control-label">Busca</label>
+                         <input type="file" required  name="anexos[]" style="border:none;" class="form-control" multiple accept=".png , .pdf, .doc , .jpg" />
+                        
+                        </div>
+                  </div>
+                  <div class="col-md-4 col-md-offset-4">
+                    <input type="submit" value="Adicionar" class="btn btn-primary btn-block" />
+                    </div>
+                </div>
+               
+          
+                  </form>
+                 
+          
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+
+    </section>
+        </div>
+
+
+
+
+
+

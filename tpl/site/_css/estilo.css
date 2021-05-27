@@ -1,0 +1,25 @@
+#banner {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 20px;
+    color: white;
+    background-image: url("../img/banner.jpg");
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    background-blend-mode: multiply;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#menu{
+    box-shadow: 2px 3px 4px rgba(0,0,0,0.5);
+
+}
+
+#logo{
+    width: 120px;
+    height:70px ;
+}

@@ -1,0 +1,110 @@
+
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      
+            <h1>
+                Usuario
+           </h1>
+           <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li >Cadastro</li>
+            
+          </ol>
+        
+      
+     
+    </section>
+
+    <section class="content">
+      
+        <div class="row">
+           <div class="col-md-12">
+            <a href="/admin/usuario/add" class="btn btn-primary"><span class="fa fa-plus"> </span> Novo</a>
+           </div>
+        </div>
+
+      <div class="row">
+   <div class="col-md-12"> 
+    <div class="col-md-4">
+
+{if="$tipo != null"}
+{if="$tipo == 1"}
+<h5 class="alert alert-success">{$msg}</h5>
+{else}
+<h5 class="alert alert-danger">{$msg}</h5>
+{/if}
+{/if}
+
+      
+
+    </div>
+
+   </div>
+        </div>
+
+
+
+            <div class="row" style="margin-top:10px;">
+                    <div class="col-xs-12">
+                      <div class="box">
+                        <div class="box-header">
+                          <h3 class="box-title">Tabela de Usuarios</h3>
+            <div class="box-body">
+                    <table  class="table table-bordered table-hover table-style">
+                      <thead>
+                      <tr>
+                        <th>Codigo</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Municipio</th>
+                        <th>Login</th>
+                        <th>Perfil</th>
+                        <th>Opções</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                          {loop="$usuarios"}
+                          <tr>
+                                <td>{$value.idusuario}</td>
+                                <td>{$value.nome}</td>
+                                <td>{$value.email}</td>
+                                <td>{$value.cidade}</td>
+                                <td>{$value.login}</td>
+                                <td>{$value.perfil}</td>
+                                <td>
+                                        <a class="btn btn-info" href="/admin/usuario/{$value.pessoa_id}"><span class="fa  fa-pencil"> </span></a>
+                                        <a href=" /admin/usuario/{$value.pessoa_id}/convenios" class="btn btn-success"><span class="fa  fa-search"> </span></a>
+                                        <a href="/admin/usuario/{$value.pessoa_id}/delete" onclick="return confirm('Tem certeza que deseja excluir esse item ?');" class="btn btn-danger"><span class="fa  fa-close"> </span></a>
+                                        <a href="/admin/usuario/{$value.pessoa_id}/atualizarPrazo" onclick="return confirm('Deseja Atualizar os Prazos da Comissão de {$value.nome} ?');" class="btn btn-primary"><span class="fa   fa-circle-o-notch"> </span></a>
+                                      </td>
+                          </tr>
+
+                          {/loop}
+ 
+                     </tbody>
+                        <tfoot>
+                        <tr>
+                                <th>Codigo</th>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Municipio</th>
+                                <th>Login</th>
+                                <th>Perfil</th>
+                                <th>Opções</th>
+                        </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+   
+</div>
+</div>
+</div>
+    </section>
+        </div>
+
+
+
+

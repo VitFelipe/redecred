@@ -1,0 +1,19 @@
+{
+    "require": {
+        "rain/raintpl": ">=3.0.0",
+        "slim/slim": "2.*",
+        "phpmailer/phpmailer":"5.2.22",
+        "dompdf/dompdf":"0.8.3"
+    },
+
+    "autoload":{
+    	"psr-4":{
+            "Model\\":"vendor\\redCred\\classes\\Model",
+            "Page\\":"vendor\\redCred\\classes\\Page",
+            "BD\\":"vendor\\redCred\\classes\\BD",
+            "Dao\\":"vendor\\redCred\\classes\\Dao",
+            "Util\\":"vendor\\redCred\\classes\\Util"
+
+    	}
+    }
+}

@@ -1,0 +1,162 @@
+
+
+
+
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          
+                <h1>
+                      Tipo Contrato <small>Pazo</small>
+               </h1>
+               <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li >Cadastro</li>
+                <li > Convênio</li>
+                <li > Tipo Contrato</li>
+                <li  class="active"> Prazo</li>
+                
+              </ol>
+            
+          
+         
+        </section>
+    
+        <section class="content">
+    
+                <div class="row">
+                        <div class="col-md-12">
+                            <a class="btn btn-info" href="/admin/convenio/{$itens[0]['convenio_contrato_id']}/detalhe">voltar</a>
+                        </div>
+                    </div>
+    
+    
+                <div class="row" style="margin-top:10px;">
+                        <div class="col-xs-12">
+                          <div class="box">
+          
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-12">
+                            <div class="col-md-4">
+                    <label>Banco</label>
+                     <input type="text" class="form-control" value="{$banco}" disabled />
+                            </div>
+                    
+                
+                    <div class="col-md-4">
+                    <div class="form-group">
+                       
+                                
+                        <label>Convênio</label>
+                         <input type="text"class="form-control" value="{$convenio}" disabled />
+                                </div>
+                        </div>
+
+                        <div class="col-md-4">
+                                <div class="form-group">
+                                   
+                                            
+                                    <label>Tipo Contrato</label>
+                                     <input type="text"class="form-control" value="{$tipoContrato}" disabled />
+                                            </div>
+                                    </div>
+                    </div>
+                    </div>
+                   
+                </div>
+                </div>
+                </div>
+                </div>
+    
+            <div class="row">
+               
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                  <div class="col-md-6">
+                    {if="$msg != null"}
+                    <h5 class="alert alert-success">{$msg}</h5>
+
+                    {/if}
+
+                    </div>
+                    </div>
+                  
+                  </div>
+    
+                <div class="row" style="margin-top:10px;">
+                        <div class="col-xs-12">
+                          <div class="box">
+                            <div class="box-header">
+                              <h3 class="box-title">Prazo - Comissão</h3>
+                            </div>
+                <div class="box-body">
+
+                    <form action="/admin/convenio/itemprazo" class="form-inline" method="POST">
+                      <input type="hidden" name="item_tipo_contrato_id" value="{$itens[0]['item_tipo_contrato_id']}" />
+                    {loop="$itens"}
+                        <div class="row" style="margin-top:15px;">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <label>{$value.descricao} </label>
+                                        </div>
+                        
+                        <input class="simple-field-data-mask-reverse form-control" required
+                        type="number"  data-mask-reverse="true"  step=".01"
+                         required value="{$value.comissao}" name="prazo[{$value.item_prazo_convenio_id}][]" />
+                        
+                         <div class="input-group-addon">
+                            <label>%</label>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    {/loop}
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="col-md-3">
+                     <input type="submit" value="Salvar" style="margin-top:25px;" class="btn btn-primary btn-block" />
+
+                        </div>
+
+                        <div class="col-md-3">
+                            <a href="#"   style="margin-top:25px;" class="btn btn-primary btn-block" >Cancelar</a>
+       
+                               </div>
+
+                      </div>
+ 
+
+                    </div>
+
+                  
+                    </form>
+                  
+                 
+                </div>
+       
+    </div>
+    </div>
+    
+    
+    
+    
+        </div>
+    
+        </section>
+            </div>
+    
+    
+    
+    
+    
+    
+    
